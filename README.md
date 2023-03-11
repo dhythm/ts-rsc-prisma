@@ -63,3 +63,8 @@ npm install --save-dev html-webpack-plugin
 npm install --save-dev webpack-dev-server
 npm install --save-dev ts-loader
 ```
+
+```sh
+npm install --save-dev @babel/core @babel/preset-env "@babel/preset-react" "@babel/preset-typescript" babel-loader
+touch .babelrc
+```
