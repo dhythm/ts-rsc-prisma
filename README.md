@@ -6,7 +6,7 @@
 
 ```sh
 npm install react@experimental react-dom@experimental react-server-dom-webpack@experimental
-npm install --save-dev @types/react @types/react-dom typescript webpack
+npm install --save-dev @types/react @types/react-dom typescript webpack webpack-cli
 ```
 
 ```sh
@@ -39,4 +39,27 @@ npm install --save-dev eslint-config-prettier
 npm install --save-dev eslint-plugin-import eslint-plugin-unused-imports
 ```
 
+### Create React App
 
+```sh
+mkdir public
+touch public/index.html
+touch public/style.css
+```
+
+```sh
+mkdir src
+touch src/index.js
+touch src/App.client.tsx
+```
+
+```
+npm install react-error-boundary --force
+```
+
+```sh
+touch webpack.config.js
+npm install --save-dev html-webpack-plugin
+npm install --save-dev webpack-dev-server
+npm install --save-dev ts-loader
+```
