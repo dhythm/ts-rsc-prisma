@@ -7,7 +7,7 @@ export default function App() {
     <Suspense fallback={null}>
       <ErrorBoundary FallbackComponent={ErrorComponent}>
         <Root>
-          <div>Hello, world!</div>
+          <div>Hello, React Server Components!</div>
         </Root>
       </ErrorBoundary>
     </Suspense>

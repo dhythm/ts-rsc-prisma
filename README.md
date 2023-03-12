@@ -88,4 +88,5 @@ touch src/App.server.jsx
 
 ```sh
 npm install --save-dev concurrently
+npm install --save-dev ts-node
 ```

@@ -5,8 +5,11 @@ register();
 
 const babelRegister = require("@babel/register");
 babelRegister({
-  ignore: [/[\\\/](build|server|node_modules)[\\\/]/],
-  presets: [["@babel/preset-react", { runtime: "automatic" }], "@babel/preset-typescript"],
+  ignore: [/[\\\/](dist|server|node_modules)[\\\/]/],
+  presets: [
+    ["@babel/preset-react", { runtime: "automatic" }],
+    "@babel/preset-typescript",
+  ],
   plugins: ["@babel/transform-modules-commonjs"],
 });
 
@@ -75,10 +78,11 @@ const waitForWebpack = async () => {
 
 const renderReactTree = async (res, props) => {
   await waitForWebpack();
-  const manifest = readFileSync(
-    path.resolve(__dirname, "../dist/react-client-manifest.json"),
-    "utf8"
-  );
+  // const manifest = readFileSync(
+  //   path.resolve(__dirname, "../dist/react-client-manifest.json"),
+  //   "utf8"
+  // );
+  const manifest = JSON.stringify({});
   const moduleMap = JSON.parse(manifest);
   const { pipe } = renderToPipeableStream(
     React.createElement(ReactApp, props),
@@ -88,7 +92,14 @@ const renderReactTree = async (res, props) => {
 };
 
 const sendResponse = (req, res, redirectToId) => {
-  const location = JSON.parse(req.query.location);
+  const location = JSON.parse(
+    req.query?.location ??
+      JSON.stringify({
+        selectedId: null,
+        isEditing: false,
+        searchText: "",
+      })
+  );
   if (redirectToId) {
     location.selectedId = redirectToId;
   }
@@ -114,3 +125,10 @@ app.get(
     res.send(html);
   })
 );
+
+app.get("/react", (req, res) => {
+  sendResponse(req, res, null);
+});
+
+app.use(express.static("dist"));
+app.use(express.static("public"));
