@@ -68,3 +68,24 @@ npm install --save-dev ts-loader
 npm install --save-dev @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript babel-loader
 touch .babelrc
 ```
+
+### Create server-side React App
+
+```sh
+mkdir server
+touch server/api.server.js
+touch server/package.json
+```
+
+```sh
+npm install express compression
+npm install --save-dev @babel/register
+```
+
+```sh
+touch src/App.server.jsx
+```
+
+```sh
+npm install --save-dev concurrently
+```
