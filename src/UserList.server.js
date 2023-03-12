@@ -2,7 +2,6 @@ import { prisma } from "./db.server";
 
 export const UserList = ({ searchText }) => {
   const users = prisma.user.findMany();
-  console.log({ users });
 
   return users.length > 0 ? (
     <ul className="users-list">
