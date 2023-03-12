@@ -39,7 +39,7 @@ npm install --save-dev eslint-config-prettier
 npm install --save-dev eslint-plugin-import eslint-plugin-unused-imports
 ```
 
-### Create React App
+### Create client-side React App (TS + Webpack + Babel)
 
 ```sh
 mkdir public
@@ -65,6 +65,6 @@ npm install --save-dev ts-loader
 ```
 
 ```sh
-npm install --save-dev @babel/core @babel/preset-env "@babel/preset-react" "@babel/preset-typescript" babel-loader
+npm install --save-dev @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript babel-loader
 touch .babelrc
 ```

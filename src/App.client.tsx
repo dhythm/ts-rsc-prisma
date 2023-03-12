@@ -1,11 +1,14 @@
 import { FC, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import { Root } from "./Root.client";
 
 export default function App() {
   return (
     <Suspense fallback={null}>
       <ErrorBoundary FallbackComponent={ErrorComponent}>
-        <div>Hello, world!</div>
+        <Root>
+          <div>Hello, world!</div>
+        </Root>
       </ErrorBoundary>
     </Suspense>
   );
