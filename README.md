@@ -94,4 +94,3 @@ npm install --save-dev ts-node
 ### Troubles
 
 - Webpack is crashed if importing `createFromFetch`...
-- `node scripts/build.js` crashes with `Can't resolve './App.client'`

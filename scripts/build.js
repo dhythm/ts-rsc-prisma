@@ -31,6 +31,9 @@ webpack(
         },
       ],
     },
+    resolve: {
+      extensions: [".tsx", ".ts", ".jsx", ".js"],
+    },
     plugins: [
       new HtmlWebpackPlugin({
         inject: true,
