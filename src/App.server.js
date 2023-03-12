@@ -1,4 +1,5 @@
 import React from "react";
+import { Foo } from "./Foo.server";
 import { Hello } from "./Hello.server";
 import { User } from "./User.server";
 import { UserList } from "./UserList.server";
@@ -25,6 +26,9 @@ export default function App({ selectedId, isEditing, searchText }) {
 
       <section key={selectedId} className="col viewer">
         <Hello />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Foo />
+        </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
           <User selectedId={""} isEditing={false} />
         </Suspense>

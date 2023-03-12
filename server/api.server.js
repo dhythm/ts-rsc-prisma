@@ -142,5 +142,12 @@ app.get(
   })
 );
 
+app.get(
+  "/foo",
+  handleErrors(async (_req, res) => {
+    res.json({ foo: "foo", bar: "bar", baz: "baz" });
+  })
+);
+
 app.use(express.static("dist"));
 app.use(express.static("public"));
