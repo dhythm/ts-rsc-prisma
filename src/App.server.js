@@ -1,10 +1,10 @@
-import React from "react";
+import { Suspense } from "react";
+import { Clock } from "./Clock.client";
 import { Foo } from "./Foo.server";
 import { Hello } from "./Hello.server";
+import { SearchField } from "./SearchField.client";
 import { User } from "./User.server";
 import { UserList } from "./UserList.server";
-
-const { Suspense } = React;
 
 export default function App({ selectedId, isEditing, searchText }) {
   console.log({ selectedId, isEditing, searchText });
@@ -15,7 +15,12 @@ export default function App({ selectedId, isEditing, searchText }) {
           <strong>React + Prisma</strong>
         </section>
 
-        <section className="sidebar-menu" role="menubar"></section>
+        <section className="sidebar-menu" role="menubar">
+          <div>
+            <SearchField />
+            <Clock />
+          </div>
+        </section>
 
         <nav>
           <Suspense fallback={<div>Loading...</div>}>
@@ -30,7 +35,7 @@ export default function App({ selectedId, isEditing, searchText }) {
           <Foo />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
-          <User selectedId={""} isEditing={false} />
+          <User selectedId={"74ccbf87-7480-4711-b3f7-587f826675f6"} />
         </Suspense>
       </section>
     </div>

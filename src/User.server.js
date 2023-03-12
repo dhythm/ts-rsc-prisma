@@ -1,10 +1,9 @@
 import { fetch } from "react-fetch";
 
-export const User = ({ selectedId, isEditing }) => {
-  const user =
-    selectedId !== null
-      ? fetch(`http://localhost:4000/user/${selectedId}`).json()
-      : null;
+export const User = ({ selectedId }) => {
+  const user = selectedId
+    ? fetch(`http://localhost:4000/user/${selectedId}`).json()
+    : null;
 
   if (!user) {
     return (
@@ -14,10 +13,5 @@ export const User = ({ selectedId, isEditing }) => {
     );
   }
 
-  return (
-    <div>
-      <span>{user.name}</span>
-      <span>{user.email}</span>
-    </div>
-  );
+  return <div>{JSON.stringify(user)}</div>;
 };

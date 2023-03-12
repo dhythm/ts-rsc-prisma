@@ -77,11 +77,10 @@ const waitForWebpack = async () => {
 
 const renderReactTree = async (res, props) => {
   await waitForWebpack();
-  // const manifest = readFileSync(
-  //   path.resolve(__dirname, "../dist/react-client-manifest.json"),
-  //   "utf8"
-  // );
-  const manifest = JSON.stringify({});
+  const manifest = readFileSync(
+    path.resolve(__dirname, "../dist/react-client-manifest.json"),
+    "utf8"
+  );
   const moduleMap = JSON.parse(manifest);
   const { pipe } = renderToPipeableStream(
     React.createElement(ReactApp, props),

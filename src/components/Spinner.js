@@ -1,3 +1,5 @@
+import React from "react";
+
 export const Spinner = ({ active = false }) => (
   <div
     className={["spinner", active && "spinner--active"].join(" ")}
