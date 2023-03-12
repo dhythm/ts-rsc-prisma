@@ -1,8 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ReactServerWebpackPlugin = require("react-server-dom-webpack/plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: path.resolve(__dirname, "./src/index.client.js"),
   module: {
     rules: [
       {
@@ -30,6 +31,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
     }),
+    new ReactServerWebpackPlugin({ isServer: false }),
   ],
   devServer: {
     static: {

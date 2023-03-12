@@ -1,4 +1,6 @@
-import { Suspense } from "react";
+import React from "react";
+
+const { Suspense } = React;
 
 export default function App({ selectedId, isEditing, searchText }) {
   return (
