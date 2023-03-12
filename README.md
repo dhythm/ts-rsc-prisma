@@ -88,9 +88,12 @@ touch src/App.server.jsx
 
 ```sh
 npm install --save-dev concurrently
-npm install --save-dev ts-node
 ```
 
-### Troubles
+### Create DB
 
-- Webpack is crashed if importing `createFromFetch`...
+```sh
+npm install react-prisma --force
+npm install --save-dev prisma
+npx prisma init --datasource-provider postgresql
+```

@@ -6,9 +6,7 @@ export default function App() {
   return (
     <Suspense fallback={null}>
       <ErrorBoundary FallbackComponent={ErrorComponent}>
-        <Root>
-          <div>Hello, React Server Components!</div>
-        </Root>
+        <Root />
       </ErrorBoundary>
     </Suspense>
   );

@@ -15,6 +15,7 @@ plugins:
 rules:
   "react/jsx-uses-react": off
   "react/react-in-jsx-scope": off
+  "react/prop-types": off
   "@typescript-eslint/explicit-function-return-type": off
   "@typescript-eslint/no-unused-vars": off
   "@typescript-eslint/consistent-type-imports": off

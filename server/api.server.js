@@ -19,7 +19,7 @@ const { unlink, writeFile } = require("fs").promises;
 const path = require("path");
 const express = require("express");
 const React = require("react");
-const { renderToPipeableStream } = require("react-server-dom-webpack/server");
+const { renderToPipeableStream } = require("react-server-dom-webpack/writer");
 const ReactApp = require("../src/App.server").default;
 
 const PORT = process.env.PORT || 4000;

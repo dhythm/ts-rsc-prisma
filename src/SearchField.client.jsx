@@ -8,7 +8,13 @@ export const SearchField = () => {
   // const [, setLocation] = useLocation();
 
   return (
-    <form className="search" role="search" onSubmit={(e) => e.preventDefault()}>
+    <form
+      className="search"
+      role="search"
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <label className="offscreen" htmlFor="sidebar-search-input">
         Search for a title
       </label>

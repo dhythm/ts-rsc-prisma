@@ -3,6 +3,7 @@ import React from "react";
 const { Suspense } = React;
 
 export default function App({ selectedId, isEditing, searchText }) {
+  console.log({ selectedId, isEditing, searchText });
   return (
     <div className="main">
       <section className="col sidebar">
