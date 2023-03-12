@@ -19,6 +19,7 @@ rules:
   "@typescript-eslint/no-unused-vars": off
   "@typescript-eslint/consistent-type-imports": off
   "@typescript-eslint/consistent-type-assertions": off
+  "@typescript-eslint/ban-ts-comment": off
   "import/order":
     - warn
     - alphabetize:

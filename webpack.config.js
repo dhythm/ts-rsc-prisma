@@ -1,9 +1,13 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ReactServerWebpackPlugin = require("react-server-dom-webpack/plugin");
+const rimraf = require("rimraf");
+
+rimraf.sync(path.resolve(__dirname, "../dist"));
 
 module.exports = {
   entry: path.resolve(__dirname, "./src/index.client.js"),
+  devtool: "cheap-module-source-map",
   module: {
     rules: [
       {
