@@ -6,7 +6,7 @@ const rimraf = require("rimraf");
 rimraf.sync(path.resolve(__dirname, "../dist"));
 
 module.exports = {
-  entry: path.resolve(__dirname, "./src/index.client.js"),
+  entry: path.resolve(__dirname, "./src/index.client.tsx"),
   devtool: "cheap-module-source-map",
   module: {
     rules: [

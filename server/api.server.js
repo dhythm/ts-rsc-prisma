@@ -126,7 +126,7 @@ app.get(
   })
 );
 
-app.get("/react", (req, res) => {
+app.get("/rsc", (req, res) => {
   sendResponse(req, res, null);
 });
 
