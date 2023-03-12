@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:client": "webpack --mode production",
-    "start": "concurrently -n server,client -c auto \"npm run server:dev\" \"npm run client:dev\"",
-    "client:dev": "webpack serve --mode development",
+    "build:client:dev": "webpack --mode development",
+    "build:client:prod": "webpack --mode production",
     "server:dev": "node --conditions=react-server server",
+    "start": "concurrently -n server,client -c auto \"npm run server:dev\" \"npm run build:client:dev\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
