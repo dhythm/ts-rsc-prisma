@@ -6,22 +6,21 @@ register();
 const babelRegister = require("@babel/register");
 babelRegister({
   ignore: [/[\\\/](dist|server|node_modules)[\\\/]/],
-  presets: [
-    ["@babel/preset-react", { runtime: "automatic" }],
-    "@babel/preset-typescript",
-  ],
+  presets: [["@babel/preset-react", { runtime: "automatic" }]],
   plugins: ["@babel/transform-modules-commonjs"],
 });
 
-const compress = require("compression");
 const { readFileSync } = require("fs");
 const { unlink, writeFile } = require("fs").promises;
 const path = require("path");
+const { PrismaClient } = require("@prisma/client");
+const compress = require("compression");
 const express = require("express");
 const React = require("react");
 const { renderToPipeableStream } = require("react-server-dom-webpack/writer");
 const ReactApp = require("../src/App.server").default;
 
+const prisma = new PrismaClient();
 const PORT = process.env.PORT || 4000;
 const app = express();
 
@@ -129,6 +128,19 @@ app.get(
 app.get("/rsc", (req, res) => {
   sendResponse(req, res, null);
 });
+
+app.get(
+  "/user/:id",
+  handleErrors(async (req, res) => {
+    const user = await prisma.user.findFirst({
+      where: {
+        id: req.params.id,
+      },
+    });
+    console.log({ user });
+    res.json(user);
+  })
+);
 
 app.use(express.static("dist"));
 app.use(express.static("public"));

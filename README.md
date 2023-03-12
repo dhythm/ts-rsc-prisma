@@ -79,6 +79,7 @@ touch server/package.json
 
 ```sh
 npm install express compression
+npm install react-fetch@experimental --force
 npm install --save-dev @babel/register
 ```
 

@@ -8,6 +8,11 @@
     "build:client:prod": "webpack --mode production",
     "server:dev": "node --conditions=react-server server",
     "start": "concurrently -n server,client -c auto \"npm run server:dev\" \"npm run build:client:dev\"",
+    "db:create": "docker-compose run -p 5432:5432 -d postgres",
+    "db:seed": "node prisma/seed.js",
+    "db:init": "rm -fr prisma/migrations && prisma migrate dev --name init && npm run db:seed",
+    "db:migrate": "prisma migrate deploy --preview-feature",
+    "db:schema": "prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,6 +24,7 @@
     "react": "^0.0.0-experimental-a8875eab7-20230310",
     "react-dom": "^0.0.0-experimental-a8875eab7-20230310",
     "react-error-boundary": "^3.1.4",
+    "react-fetch": "^0.0.0-experimental-28a574ea8-20221027",
     "react-prisma": "^4.11.0",
     "react-server-dom-webpack": "0.0.0-experimental-0cc724c77-20211125"
   },
