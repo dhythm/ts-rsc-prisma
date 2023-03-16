@@ -1,4 +1,4 @@
-"use string";
+"use strict";
 
 const register = require("react-server-dom-webpack/node-register");
 register();
